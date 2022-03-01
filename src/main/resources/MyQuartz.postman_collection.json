@@ -1,304 +1,545 @@
 {
-	"info": {
-		"_postman_id": "2b41b4b8-516e-472b-a661-ba1b1d19daac",
-		"name": "MyQuartz",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "查询任务列表",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobName",
-							"value": "系统",
-							"type": "default",
-							"disabled": true
-						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "新增任务",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobName",
-							"value": "自定义定时任务2",
-							"description": "任务名称",
-							"type": "default"
-						},
-						{
-							"key": "jobGroup",
-							"value": "DEFAULT",
-							"description": "任务分组",
-							"type": "default"
-						},
-						{
-							"key": "invokeTarget",
-							"value": "ryTask.ryParams('java')",
-							"description": "调用目标字符串",
-							"type": "default"
-						},
-						{
-							"key": "cronExpression",
-							"value": "0/10 * * * * ?",
-							"description": "cron表达式",
-							"type": "default"
-						},
-						{
-							"key": "misfirePolicy",
-							"value": "1",
-							"description": "执行策略，1立即执行，2执行一次，3放弃执行",
-							"type": "default"
-						},
-						{
-							"key": "concurrent",
-							"value": "1",
-							"description": "是否并发执行，0允许 1禁止",
-							"type": "default"
-						},
-						{
-							"key": "remark",
-							"value": "备注2",
-							"description": "备注",
-							"type": "default"
-						},
-						{
-							"key": "status",
-							"value": "1",
-							"description": "任务状态，0正常  1暂停",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/add",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "修改任务",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobId",
-							"value": "103",
-							"description": "任务ID",
-							"type": "default"
-						},
-						{
-							"key": "jobName",
-							"value": "自定义定时任务3",
-							"description": "任务名称",
-							"type": "default"
-						},
-						{
-							"key": "jobGroup",
-							"value": "DEFAULT",
-							"description": "任务分组",
-							"type": "default"
-						},
-						{
-							"key": "invokeTarget",
-							"value": "ryTask.ryParams('java')",
-							"description": "调用目标字符串",
-							"type": "default"
-						},
-						{
-							"key": "cronExpression",
-							"value": "0/10 * * * * ?",
-							"description": "cron表达式",
-							"type": "default"
-						},
-						{
-							"key": "misfirePolicy",
-							"value": "1",
-							"description": "执行策略，1立即执行，2执行一次，3放弃执行",
-							"type": "default"
-						},
-						{
-							"key": "concurrent",
-							"value": "1",
-							"description": "是否并发执行，0允许 1禁止",
-							"type": "default"
-						},
-						{
-							"key": "remark",
-							"value": "",
-							"description": "备注",
-							"type": "default"
-						},
-						{
-							"key": "status",
-							"value": "1",
-							"description": "任务状态，0正常  1暂停",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "删除任务",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "ids",
-							"value": "103",
-							"description": "任务ID，多个用逗号分开",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/remove",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"remove"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "修改任务状态",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobId",
-							"value": "104",
-							"type": "default"
-						},
-						{
-							"key": "jobGroup",
-							"value": "DEFAULT",
-							"type": "default"
-						},
-						{
-							"key": "status",
-							"value": "1",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/changeStatus",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"changeStatus"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "任务调度立即执行一次",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobId",
-							"value": "104",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8035/monitor/job/run",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8035",
-					"path": [
-						"monitor",
-						"job",
-						"run"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "bf099c56-4ed8-45bd-abe2-6583499e9c2c",
+    "name": "MyQuartz",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "任务接口",
+      "item": [
+        {
+          "name": "查询任务列表",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "pageSize",
+                  "value": "10",
+                  "description": "一页多少条",
+                  "type": "default"
+                },
+                {
+                  "key": "pageNum",
+                  "value": "1",
+                  "description": "第几页",
+                  "type": "default"
+                },
+                {
+                  "key": "orderByColumn",
+                  "value": "createTime",
+                  "description": "根据创建时间排序",
+                  "type": "default"
+                },
+                {
+                  "key": "isAsc",
+                  "value": "desc",
+                  "description": "desc倒叙，asc正序",
+                  "type": "default"
+                },
+                {
+                  "key": "jobName",
+                  "value": "系统",
+                  "description": "任务名称",
+                  "type": "default"
+                },
+                {
+                  "key": "jobGroup",
+                  "value": "DEFAULT",
+                  "description": "任务分组",
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "1",
+                  "description": "任务状态，0正常  1暂停",
+                  "type": "default"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/list",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "新增任务",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jobName",
+                  "value": "自定义定时任务2",
+                  "description": "任务名称",
+                  "type": "default"
+                },
+                {
+                  "key": "jobGroup",
+                  "value": "DEFAULT",
+                  "description": "任务分组",
+                  "type": "default"
+                },
+                {
+                  "key": "invokeTarget",
+                  "value": "ryTask.ryParams('java')",
+                  "description": "调用目标字符串",
+                  "type": "default"
+                },
+                {
+                  "key": "cronExpression",
+                  "value": "0/10 * * * * ?",
+                  "description": "cron表达式",
+                  "type": "default"
+                },
+                {
+                  "key": "misfirePolicy",
+                  "value": "1",
+                  "description": "执行策略，1立即执行，2执行一次，3放弃执行",
+                  "type": "default"
+                },
+                {
+                  "key": "concurrent",
+                  "value": "1",
+                  "description": "是否并发执行，0允许 1禁止",
+                  "type": "default"
+                },
+                {
+                  "key": "remark",
+                  "value": "备注2",
+                  "description": "备注",
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "1",
+                  "description": "任务状态，0正常  1暂停",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "修改任务",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jobId",
+                  "value": "103",
+                  "description": "任务ID",
+                  "type": "default"
+                },
+                {
+                  "key": "jobName",
+                  "value": "自定义定时任务3",
+                  "description": "任务名称",
+                  "type": "default"
+                },
+                {
+                  "key": "jobGroup",
+                  "value": "DEFAULT",
+                  "description": "任务分组",
+                  "type": "default"
+                },
+                {
+                  "key": "invokeTarget",
+                  "value": "ryTask.ryParams('java')",
+                  "description": "调用目标字符串",
+                  "type": "default"
+                },
+                {
+                  "key": "cronExpression",
+                  "value": "0/10 * * * * ?",
+                  "description": "cron表达式",
+                  "type": "default"
+                },
+                {
+                  "key": "misfirePolicy",
+                  "value": "1",
+                  "description": "执行策略，1立即执行，2执行一次，3放弃执行",
+                  "type": "default"
+                },
+                {
+                  "key": "concurrent",
+                  "value": "1",
+                  "description": "是否并发执行，0允许 1禁止",
+                  "type": "default"
+                },
+                {
+                  "key": "remark",
+                  "value": "",
+                  "description": "备注",
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "1",
+                  "description": "任务状态，0正常  1暂停",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/edit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "删除任务",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ids",
+                  "value": "103",
+                  "description": "任务ID，多个用逗号分开",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/remove",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "remove"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "任务详情",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/detail/104",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "detail",
+                "104"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "修改任务状态",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jobId",
+                  "value": "104",
+                  "type": "default"
+                },
+                {
+                  "key": "jobGroup",
+                  "value": "DEFAULT",
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "1",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/changeStatus",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "changeStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "任务调度立即执行一次",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jobId",
+                  "value": "104",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/job/run",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "job",
+                "run"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "任务日志接口",
+      "item": [
+        {
+          "name": "调度日志列表",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "pageSize",
+                  "value": "10",
+                  "description": "一页显示多少条",
+                  "type": "default"
+                },
+                {
+                  "key": "pageNum",
+                  "value": "1",
+                  "description": "第几页",
+                  "type": "default"
+                },
+                {
+                  "key": "orderByColumn",
+                  "value": "createTime",
+                  "description": "根据创建时间排序",
+                  "type": "default"
+                },
+                {
+                  "key": "isAsc",
+                  "value": "desc",
+                  "description": "desc倒叙，asc正序",
+                  "type": "default"
+                },
+                {
+                  "key": "jobName",
+                  "value": "定时",
+                  "description": "任务名称",
+                  "type": "default"
+                },
+                {
+                  "key": "jobGroup",
+                  "value": "DEFAULT",
+                  "description": "任务分组",
+                  "type": "default"
+                },
+                {
+                  "key": "status",
+                  "value": "0",
+                  "description": "任务状态",
+                  "type": "default"
+                },
+                {
+                  "key": "params[beginTime]",
+                  "value": "2022-02-28",
+                  "description": "创建时间开始范围",
+                  "type": "default"
+                },
+                {
+                  "key": "params[endTime]",
+                  "value": "2022-03-02",
+                  "description": "创建时间结束范围",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/jobLog/list",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "jobLog",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "日志详情",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8035/monitor/jobLog/detail/54",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "jobLog",
+                "detail",
+                "54"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "删除日志",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ids",
+                  "value": "51",
+                  "description": "日志ID，多个用逗号分开",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/jobLog/remove",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "jobLog",
+                "remove"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "清空日志",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ids",
+                  "value": "51",
+                  "description": "日志ID，多个用逗号分开",
+                  "type": "default"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8035/monitor/jobLog/clean",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8035",
+              "path": [
+                "monitor",
+                "jobLog",
+                "clean"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

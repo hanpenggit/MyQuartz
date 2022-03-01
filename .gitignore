@@ -1,0 +1,11 @@
+/*.iml
+/*/*.iml
+/*/*/*.iml
+/*/*/*/*.iml
+target
+.idea
+*.log
+/logs
+/*.versionsBackup
+/*/*.versionsBackup
+/*/*/*.versionsBackup

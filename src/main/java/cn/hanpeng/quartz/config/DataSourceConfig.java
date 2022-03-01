@@ -15,7 +15,7 @@ public class DataSourceConfig {
 
 
     @Bean
-    @ConfigurationProperties("spring.datasource.druid.master")
+    @ConfigurationProperties("spring.datasource.druid")
     public DruidDataSource postgresqlDataSource() {
         return new DruidDataSource();
     }

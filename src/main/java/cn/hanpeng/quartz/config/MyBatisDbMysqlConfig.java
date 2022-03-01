@@ -23,14 +23,14 @@ import java.util.List;
 public class MyBatisDbMysqlConfig {
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
-        SqlSessionFactoryBean sqlSessionFactoryBean=new SqlSessionFactoryBean();
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource[] resource1=resolver.getResources("classpath:mapper/**/*Mapper.xml");
-        List<Resource> resources=new ArrayList<>();
+        Resource[] resource1 = resolver.getResources("classpath:mapper/**/*Mapper.xml");
+        List<Resource> resources = new ArrayList<>();
         resources.addAll(Arrays.asList(resource1));
-        Resource [] res=new Resource[resources.size()];
+        Resource[] res = new Resource[resources.size()];
         resources.toArray(res);
         sqlSessionFactoryBean.setMapperLocations(res);
 //        sqlSessionFactoryBean.setTransactionFactory(new ManagedTransactionFactory());
@@ -38,13 +38,13 @@ public class MyBatisDbMysqlConfig {
     }
 
     @Bean
-    public SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) throws Exception{
+    public SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
 
     @Bean
-    public DataSourceTransactionManager transactionManager(DataSource dataSource){
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 }
